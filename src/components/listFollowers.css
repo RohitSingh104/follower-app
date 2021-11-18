@@ -1,0 +1,36 @@
+.list-followers {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper{
+    min-height: 80px;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+.checkbox{
+    margin-left: 50px;
+}
+
+.avatar {
+    margin-left:150px;
+} 
+
+.name{
+    margin-left:200px;
+}
+
+.wrapper:hover{
+    background-color:rgba(0,0,0,0.2);
+}
+
+.delete-btn {
+    display: none;
+    margin-left: 180px;
+}
+
+.wrapper:hover .delete-btn{
+    display: block;
+}
