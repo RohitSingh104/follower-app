@@ -1,5 +1,27 @@
+import { red } from '@mui/material/colors';
 import React  from 'react';
-import Button from '@mui/material/Button';
+import './deleteFollower.css';
+const deleteBtnStyle ={
+    backgroundColor: 'red',/* Green */
+    border: 'none',
+    color: 'white',
+    padding: '10px 20px',
+    textAlign: 'center',
+    textDecoration: 'none',
+    fontSize: '16px',
+
+}
+
+const nextBtnStyle = {
+    backgroundColor: 'green',/* Green */
+    border: 'none',
+    color: 'white',
+    padding: '10px 20px',
+    textAlign: 'center',
+    textDecoration: 'none',
+    fontSize: '16px',
+}
+
 
 const DeleteFollowers = ({list , checkedElement , listSetter}) => {
 
@@ -13,14 +35,23 @@ const DeleteFollowers = ({list , checkedElement , listSetter}) => {
     
     return ( 
        
-        <div className="delete-follower">
-            <Button variant="contained" color="error"
-                sx={{marginTop:5 , marginLeft:20}}
-                onClick={deleteSelectedElement}
-            >
-                Delete Selected
-            </Button>
-        
+        <div className="deleteFollower">
+            <div>
+                <button 
+                    onClick={deleteSelectedElement}
+                    style={deleteBtnStyle}
+                >
+                    Delete Selected
+                </button>
+            </div>
+            <div>
+                <button 
+                    style={nextBtnStyle}
+                >
+                    Next
+                </button>
+            </div>
+           
             
         </div>
     )

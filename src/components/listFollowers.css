@@ -34,3 +34,9 @@
 .wrapper:hover .delete-btn{
     display: block;
 }
+
+.footer-btn {
+    max-width:852px;
+    display: flex;
+    
+}
