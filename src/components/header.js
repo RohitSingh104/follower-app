@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {useState} from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -50,7 +51,28 @@ const Search = styled('div')(({ theme }) => ({
       },
     },
   }));
-const Header = () => {
+
+
+const Header = ({list ,tempList , setTempList , setlist}) => {
+    
+    const handleSearch = (e) =>{
+        let value = e.target.value;
+        let userInput= value.toLowerCase();
+        console.log(value);
+        const searchResult = tempList.filter((currElement , index)=>{
+            return currElement.login.includes(userInput);
+        })
+        console.log(searchResult);
+        if(searchResult.length !== 0){
+          setTempList(searchResult);
+        }else {
+          setTempList(list);
+        }
+        
+       
+
+    }
+  
     return (
         <div className="headerWrapper">
                <Box sx={{ flexGrow: 1 }}>
@@ -78,8 +100,9 @@ const Header = () => {
                                 <SearchIcon />
                                 </SearchIconWrapper>
                                 <StyledInputBase
-                                placeholder="Search…"
-                                inputProps={{ 'aria-label': 'search' }}
+                                  placeholder="Search…"
+                                  inputProps={{ 'aria-label': 'search' }}
+                                  onChange={handleSearch}
                                 />
                             </Search>
                         </Toolbar>

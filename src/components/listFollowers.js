@@ -6,19 +6,21 @@ import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import './listFollowers.css';
 import DeleteFollowers from './deleteFollowers';
+import Header from './header.js';
 
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 const ListFollowers = () => {
     const [list , setList] = useState([]);
+    const [tempList , setTempList] = useState([]);
     const [checkedItem , setCheckedItem] = useState([]);
     
     const deleteFollower = (e) =>{
         const ind = Number(e.target.id);
-        const followers = list.filter((currVal , index)=>{
+        const followers = tempList.filter((currVal , index)=>{
             return ind !== index;
         })
-        setList(followers);
+        setTempList(followers);
     }
 
     const handleCheckboxClick = (e) =>{
@@ -43,6 +45,7 @@ const ListFollowers = () => {
         .then(res => res.json())
         .then((data) =>{
             setList(data);
+            setTempList(data);
             
         })
         
@@ -51,9 +54,9 @@ const ListFollowers = () => {
     return (
         
         <div className="list-followers">
-               
+                <Header list={list} tempList = {tempList} setTempList={setTempList} setlist={setList}/>
                 {
-                    list.map((currElement,index) =>{
+                    tempList.map((currElement,index) =>{
                         return(
                             <>
                                 <div className="wrapper" key={index}>
@@ -86,7 +89,7 @@ const ListFollowers = () => {
                     
                 }
                 
-                <DeleteFollowers list={list} checkedElement={checkedItem} listSetter={setList}/>
+                <DeleteFollowers list={tempList} checkedElement={checkedItem} listSetter={setTempList}/>
                 
                 
         </div>

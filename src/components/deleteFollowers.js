@@ -2,9 +2,7 @@ import React  from 'react';
 import Button from '@mui/material/Button';
 
 const DeleteFollowers = ({list , checkedElement , listSetter}) => {
-    // console.log(list);
-    // console.log(checkedElement);
-    // console.log(listSetter);
+
     const deleteSelectedElement = () =>{
         const result = list.filter((currElement , index) =>{
             return !checkedElement.includes(currElement.id);
