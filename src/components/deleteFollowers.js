@@ -1,65 +1,35 @@
-import React  from 'react';
-import './deleteFollower.css';
+import React from "react";
+import "./deleteFollower.css";
 
+const DeleteFollowers = ({ list, checkedElement, listSetter }) => {
+  const deleteSelectedElement = () => {
+    const result = list.filter((currElement, index) => {
+      return !checkedElement.includes(currElement.id);
+    });
+    listSetter(result);
+  };
 
+  const handleNext = () => {
+    const result = list.filter((currElement, index) => {
+      return checkedElement.includes(currElement.id);
+    });
+    listSetter(result);
+  };
 
-const DeleteFollowers = ({list , checkedElement , listSetter}) => {
-
-    const deleteSelectedElement = () =>{
-        const result = list.filter((currElement , index) =>{
-            return !checkedElement.includes(currElement.id);
-        })
-        listSetter(result);
-    } 
-
-    const handleNext = () =>{
-        const result = list.filter((currElement , index) =>{
-            return checkedElement.includes(currElement.id);
-        })
-        listSetter(result);
-    }
-
-    const handlePrevious = () =>{
-        
-        listSetter(list);
-    }
-    
-    return ( 
-        
-            <div className="deleteFollower">
-                <div>
-                    <button 
-                        onClick={deleteSelectedElement}
-                        className="button delete"
-                    >
-                        Delete Selected
-                    </button>
-                </div>
-                
-                <div>
-                    <button 
-                        className="button prev"
-                        onClick={handlePrevious}
-                    >
-                        Previous
-                    </button>
-                    
-                </div>
-                <div>
-                    <button 
-                        className="button next"
-                        onClick={handleNext}
-                    >
-                        Next
-                    </button>
-                    
-                </div>
-        
-            
-                
-            </div>
-
-    )
-}
+  return (
+    <div className="deleteFollower">
+      <div>
+        <button onClick={deleteSelectedElement} className="button delete">
+          Delete Selected
+        </button>
+      </div>
+      <div>
+        <button className="button next" onClick={handleNext}>
+          Next
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default DeleteFollowers;
