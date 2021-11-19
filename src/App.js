@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Header from './components/header.js';
 import ListFollowers from './components/listFollowers';
+
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
                   <Box sx={{ bgcolor: '#cfe8fc', height: 'auto'}}>
                       <Header />
                       <ListFollowers />
+                      
                   </Box>
                   
                 </Container>
