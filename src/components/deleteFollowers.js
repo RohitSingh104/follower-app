@@ -1,26 +1,6 @@
-import { red } from '@mui/material/colors';
 import React  from 'react';
 import './deleteFollower.css';
-const deleteBtnStyle ={
-    backgroundColor: 'red',/* Green */
-    border: 'none',
-    color: 'white',
-    padding: '10px 20px',
-    textAlign: 'center',
-    textDecoration: 'none',
-    fontSize: '16px',
 
-}
-
-const nextBtnStyle = {
-    backgroundColor: 'green',/* Green */
-    border: 'none',
-    color: 'white',
-    padding: '10px 20px',
-    textAlign: 'center',
-    textDecoration: 'none',
-    fontSize: '16px',
-}
 
 
 const DeleteFollowers = ({list , checkedElement , listSetter}) => {
@@ -30,30 +10,55 @@ const DeleteFollowers = ({list , checkedElement , listSetter}) => {
             return !checkedElement.includes(currElement.id);
         })
         listSetter(result);
-        console.log(list);
     } 
+
+    const handleNext = () =>{
+        const result = list.filter((currElement , index) =>{
+            return checkedElement.includes(currElement.id);
+        })
+        listSetter(result);
+    }
+
+    const handlePrevious = () =>{
+        
+        listSetter(list);
+    }
     
     return ( 
-       
-        <div className="deleteFollower">
-            <div>
-                <button 
-                    onClick={deleteSelectedElement}
-                    style={deleteBtnStyle}
-                >
-                    Delete Selected
-                </button>
-            </div>
-            <div>
-                <button 
-                    style={nextBtnStyle}
-                >
-                    Next
-                </button>
-            </div>
-           
+        
+            <div className="deleteFollower">
+                <div>
+                    <button 
+                        onClick={deleteSelectedElement}
+                        className="button delete"
+                    >
+                        Delete Selected
+                    </button>
+                </div>
+                
+                <div>
+                    <button 
+                        className="button prev"
+                        onClick={handlePrevious}
+                    >
+                        Previous
+                    </button>
+                    
+                </div>
+                <div>
+                    <button 
+                        className="button next"
+                        onClick={handleNext}
+                    >
+                        Next
+                    </button>
+                    
+                </div>
+        
             
-        </div>
+                
+            </div>
+
     )
 }
 

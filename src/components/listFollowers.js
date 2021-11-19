@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import './listFollowers.css';
 import DeleteFollowers from './deleteFollowers';
 import Header from './header.js';
-import NextScreen from './nextScreen';
+
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 const ListFollowers = () => {

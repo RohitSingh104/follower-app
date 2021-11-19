@@ -1,5 +1,4 @@
 import React from 'react';
-import {useState} from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -59,10 +58,10 @@ const Header = ({list ,tempList , setTempList , setlist}) => {
         let value = e.target.value;
         let userInput= value.toLowerCase();
         console.log(value);
-        const searchResult = tempList.filter((currElement , index)=>{
+        const searchResult = list.filter((currElement , index)=>{
             return currElement.login.includes(userInput);
         })
-        console.log(searchResult);
+       
         if(searchResult.length !== 0){
           setTempList(searchResult);
         }else {

@@ -1,4 +1,41 @@
 .deleteFollower{
+    margin:20px 10px;
+    width:100%;
     display: flex;
     justify-content: space-between;
+}
+
+.button {
+    
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px
+}
+
+.delete {
+    background-color: brown;
+}
+
+.delete:hover{
+    transform: scale(1.05);
+}
+
+.next {
+    background-color: green;
+}
+
+.next:hover{
+    transform: scale(1.05);
+}
+
+.prev{
+    background-color: grey;
+}
+
+.prev:hover{
+    transform: scale(1.05);
 }
